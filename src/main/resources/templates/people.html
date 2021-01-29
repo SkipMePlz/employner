@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html  xmlns = "http://www.w3.org/1999/xhtml"
+        xmlns:th="http://wwww.thymeleaf.org">
+<meta charset="utf-8">
+
+<title>My application</title>
+<link rel="stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="~{navigation :: navigation(PeopleList)}"></div>
+    <span th:if="${people.size() == 0}">People list is empty</span>
+    <table th:if="${people.size() > 0}" class="table table-hover">
+        <thead class="thead-dark">
+        <tr>
+            <td>Id</td>
+            <td>Name</td>
+            <td>Surname</td>
+            <td>Details</td>
+            <td>Delete</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="person : ${people}">
+            <td th:text="${person.id}"></td>
+            <td th:text="${person.name}"></td>
+            <td th:text="${person.surname}"></td>
+            <td><a th:href="@{'/detail/'+ ${person.id}}">Details</a> </td>
+            <td><a class="btn btn-danger" th:href="@{'people/delete/'+ ${person.id}}">Delete</a></td>
+
+        </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+    <a class="btn btn-outline-primary btn-lg" th:href="@{/new}" role="button">Add person</a>
+        </div>
+</div>
+</body>
+</html>
