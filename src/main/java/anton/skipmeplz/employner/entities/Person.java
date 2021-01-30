@@ -1,6 +1,7 @@
 package anton.skipmeplz.employner.entities;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "users")
@@ -8,7 +9,9 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotEmpty(message = "Вы не ввели имя")
     private String name;
+    @NotEmpty(message = "Вы не ввели фамилию")
     private String surname;
 
     public Person() {

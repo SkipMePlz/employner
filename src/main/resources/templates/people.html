@@ -16,16 +16,14 @@
     <table th:if="${people.size() > 0}" class="table table-hover">
         <thead class="thead-dark">
         <tr>
-            <td>Id</td>
             <td>Name</td>
             <td>Surname</td>
-            <td>Details</td>
-            <td>Delete</td>
+            <td></td>
+            <td></td>
         </tr>
         </thead>
         <tbody>
         <tr th:each="person : ${people}">
-            <td th:text="${person.id}"></td>
             <td th:text="${person.name}"></td>
             <td th:text="${person.surname}"></td>
             <td><a th:href="@{'/detail/'+ ${person.id}}">Details</a> </td>
