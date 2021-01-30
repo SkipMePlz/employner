@@ -12,7 +12,7 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
 <body>
-<form th:method="POST" th:action="@{/people}" th:object="${person}">
+<form th:method="POST" th:action="@{/new}" th:object="${person}">
     <div class="form-group col-md-3">
         <label for="formGroupExampleInput">Name</label>
         <input type="text" th:field="*{name}" class="form-control" id="formGroupExampleInput" placeholder="Enter your name">
